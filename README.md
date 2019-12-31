@@ -1,0 +1,1 @@
+# Mailcheck for JS/TS
