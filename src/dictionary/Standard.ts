@@ -1,5 +1,5 @@
-import providers from '../data/providers.json';
-import tlds from '../data/tlds.json';
+import * as providers from '../data/providers.json';
+import * as tlds from '../data/tlds.json';
 import { IDictionary } from "./IDictionary";
 
 export class Standard implements IDictionary {

@@ -10,7 +10,6 @@ export default class Mailcheck {
         if (!dictionary) {
             dictionary = new Standard();
         }
-        
         this.dictionary = dictionary;
     }
 
