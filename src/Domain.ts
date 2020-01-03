@@ -3,7 +3,6 @@ import { IResult } from 'tldts-core';
 
 export class Domain {
 
-    [Symbol.toStringTag] = 'aaaa';
     protected domain: IResult;
 
     constructor(domain: string) {

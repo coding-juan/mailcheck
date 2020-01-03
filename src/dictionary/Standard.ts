@@ -1,5 +1,5 @@
-import * as providers from '../data/providers.json';
-import * as tlds from '../data/tlds.json';
+import _providers from '../data/providers.json';
+import _tlds from '../data/tlds.json';
 import { IDictionary } from "./IDictionary";
 
 export class Standard implements IDictionary {
@@ -7,8 +7,8 @@ export class Standard implements IDictionary {
     protected tlds: Set<string>;
 
     constructor() {
-        this.providers = new Set<string>(providers);
-        this.tlds = new Set<string>(tlds);
+        this.providers = new Set<string>(_providers);
+        this.tlds = new Set<string>(_tlds);
     }
 
     public getProviders(): Set<string> {
