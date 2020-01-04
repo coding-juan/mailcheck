@@ -6,7 +6,7 @@ export class Domain {
     protected domain: IResult;
 
     constructor(domain: string) {
-        this.domain = parse(domain);
+        this.domain = parse(domain, {validateHostname: false});
     }
 
     public getSuffix(): string {
@@ -18,11 +18,11 @@ export class Domain {
     }
 
     public getHostname(): string {
-        return this.domain.domain || '';
+        return this.domain.domainWithoutSuffix || '';
     }
 
     public getDomainWithoutSuffix(): string {
-        return this.domain.domainWithoutSuffix || '';
+        return (this.getSubdomain()? this.getSubdomain() + '.' : '') + this.getHostname() || '';
     }
 
     public toString(): string {

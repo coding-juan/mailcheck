@@ -2,6 +2,7 @@ import { IDictionary } from "./dictionary/IDictionary";
 import { Standard } from "./dictionary/Standard";
 import { Email } from "./Email";
 import levenshtein from "./utils/levenshtein";
+import { parse } from "tldts";
 
 export default class Mailcheck {
     protected dictionary: IDictionary;
@@ -71,6 +72,7 @@ export default class Mailcheck {
 
     public findSuggestions(word: string, list: Set<string>, threshold: number) {
         const ordered: any[][] = [];
+
         for (const value of list) {
             const distance = levenshtein(word, value);
 
@@ -79,10 +81,10 @@ export default class Mailcheck {
             }
 
             if (distance <= threshold) {
-                if(!ordered[distance]) {
-                    ordered[distance] = [];
+                if(!ordered[distance - 1]) {
+                    ordered[distance - 1] = [];
                 }
-                ordered[distance].push(value);
+                ordered[distance - 1].push(value);
             }
         }
 
@@ -91,8 +93,6 @@ export default class Mailcheck {
 
     protected sortFilteredSuggestions(filteredSuggestions: any[]): any[] {
         const result = [];
-
-        filteredSuggestions = filteredSuggestions.sort();
 
         for (const suggestions of filteredSuggestions) {
             if (!suggestions) { continue };

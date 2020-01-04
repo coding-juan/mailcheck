@@ -22,7 +22,7 @@ export class Standard implements IDictionary {
     }
 
     public getTlds(): Set<string> {
-        return this.providers;
+        return this.tlds;
     }
 
     public setTlds(tlds: Set<string>): this {

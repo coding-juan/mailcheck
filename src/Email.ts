@@ -7,8 +7,9 @@ export class Email {
     protected domain: Domain;
 
     constructor(email: string) {
-        const parsedEmail = (parseOneAddress(email) as ParsedMailbox);
-        if (!parsedEmail.local && !parsedEmail.domain) {
+        let parsedEmail = (parseOneAddress(email) as ParsedMailbox);
+        if (!parsedEmail || !parsedEmail.local && !parsedEmail.domain) {
+            parsedEmail = {} as ParsedMailbox;
             const emailRegex = /(.*)@(.*)/;
             const splittedEmail = email.match(emailRegex);
 
