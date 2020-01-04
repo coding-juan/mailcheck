@@ -2,7 +2,6 @@ import { IDictionary } from "./dictionary/IDictionary";
 import { Standard } from "./dictionary/Standard";
 import { Email } from "./Email";
 import levenshtein from "./utils/levenshtein";
-import { parse } from "tldts";
 
 export default class Mailcheck {
     protected dictionary: IDictionary;
@@ -70,7 +69,7 @@ export default class Mailcheck {
         return suggestion[0];
     }
 
-    public findSuggestions(word: string, list: Set<string>, threshold: number) {
+    protected findSuggestions(word: string, list: Set<string>, threshold: number) {
         const ordered: any[][] = [];
 
         for (const value of list) {
