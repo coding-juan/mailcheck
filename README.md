@@ -1,4 +1,5 @@
 # Mailcheck for JS/TS
+Validate and suggest emails for your email inputs on the client using Javascript/Typescript
 
 ### Prepare
 Simply clone the repo and run `npm install`
